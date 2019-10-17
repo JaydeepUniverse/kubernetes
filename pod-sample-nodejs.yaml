@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-sample-nodejs
+spec:
+  containers:
+  - image: jaydeepuniverse/sample-node-js:3.0
+    name: container-pod-sample-nodejs
+    ports:
+    - containerPort: 8080
+      protocol: TCP
