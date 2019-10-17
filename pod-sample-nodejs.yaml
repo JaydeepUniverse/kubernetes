@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pod-sample-nodejs
+  namespace: nodejs-namespace
 spec:
   containers:
   - image: jaydeepuniverse/sample-node-js:3.0
