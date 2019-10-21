@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-sample-nodejs-labels
+  labels:
+    creationMethod: manual
+    env: prod
+  namespace: nodejs-namespace
+spec:
+  containers:
+  - image: luksa/kubia-unhealthy
+    name: nodejs-unhealthy
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 8080
+      initialDelaySeconds: 15

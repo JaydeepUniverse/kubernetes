@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  name: rs-nodejs
+  namespace: ns-nodejs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app-nodejs
+  template:
+    metadata:
+      labels:
+        app: app-nodejs
+    spec:
+      containers:
+      - name: po-nodejs
+        image: luksa/kubia
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 15
