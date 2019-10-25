@@ -5,6 +5,7 @@ metadata:
   labels:
     creationMethod: manual
     env: prod
+  namespace: nodejs
 spec:
   containers:
   - image: jaydeepuniverse/sample-node-js:3.0

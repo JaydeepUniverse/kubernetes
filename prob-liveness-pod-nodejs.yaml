@@ -5,7 +5,7 @@ metadata:
   labels:
     creationMethod: manual
     env: prod
-  namespace: nodejs-namespace
+  namespace: nodejs
 spec:
   containers:
   - image: luksa/kubia-unhealthy

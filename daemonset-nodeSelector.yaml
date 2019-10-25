@@ -2,7 +2,6 @@ apiVersion: apps/v1beta2
 kind: DaemonSet
 metadata:
   name: ds-ssd-monitor
-  namespace: ns-nodejs
 spec:
   selector:
     matchLabels:
