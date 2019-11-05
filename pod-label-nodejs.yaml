@@ -5,6 +5,7 @@ metadata:
   labels:
     creationMethod: manual
     env: prod
+    app: nodejs
   namespace: nodejs
 spec:
   containers:
