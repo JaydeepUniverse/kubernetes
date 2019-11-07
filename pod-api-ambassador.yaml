@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: curl-with-ambassador
+  namespace: api
+spec:
+  containers:
+  - name: main
+    image: jaydeepuniverse/curl:1.0
+    command: ["sleep", "9999999"]
+  - name: ambassador
+    image: jaydeepuniverse/kubectl-proxy:1.0
