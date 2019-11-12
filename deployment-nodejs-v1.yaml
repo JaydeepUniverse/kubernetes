@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: nodejs
+  namespace: nodejs
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: nodejs
+      labels:
+        app: nodejs
+    spec:
+      containers:
+      - image: jaydeepuniverse/node-js:1.0
+        name: nodejs

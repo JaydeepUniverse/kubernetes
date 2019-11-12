@@ -1,10 +1,16 @@
-apiVersion: v1
-kind: ReplicationController
+apiVersion: apps/v1beta1
+kind: Deployment
 metadata:
   name: nodejs
   namespace: nodejs
 spec:
   replicas: 3
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
   template:
     metadata:
       name: nodejs
@@ -13,12 +19,9 @@ spec:
     spec:
       containers:
       - name: nodejs
-        image: jaydeepuniverse/node-js:1.0
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        livenessProbe:
+        image: jaydeepuniverse/node-js:3.0
+        readinessProbe:
+          periodSeconds: 1
           httpGet:
             path: /
             port: 8080
-          initialDelaySeconds: 15
